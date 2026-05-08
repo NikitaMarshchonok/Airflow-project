@@ -74,7 +74,7 @@ def currency_pipeline():
     @task()
     def transform(raw_data: dict) -> list:
         # Нас интересуют только эти валюты
-        targets = ["EUR", "GBP", "JPY", "ILS"]
+        targets = ["EUR", "GBP", "JPY", "ILS", "CHF"]
         records = []  # пустой список, будем его заполнять
 
         for target in targets:
