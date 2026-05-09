@@ -35,5 +35,6 @@ def heartbeat_pipeline():
                 )
         conn.close()
         print("Heartbeat записан")
+    write_heartbeat() 
 
 dag_instance = heartbeat_pipeline()
