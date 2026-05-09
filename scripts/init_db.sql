@@ -9,3 +9,10 @@ CREATE TABLE IF NOT EXISTS exchange_rates (
     fetched_at TIMESTAMP NOT NULL,
     created_at TIMESTAMP DEFAULT NOW()
 );
+
+
+
+CREATE TABLE IF NOT EXISTS heartbeat (
+    id         SERIAL PRIMARY KEY,
+    checked_at TIMESTAMP NOT NULL
+);
