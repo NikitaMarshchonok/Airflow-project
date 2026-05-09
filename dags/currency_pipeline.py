@@ -76,6 +76,7 @@ def currency_pipeline():
         # Нас интересуют только эти валюты
         currencies_str = Variable.get("target_currencies")
         targets = currencies_str.split(",")
+        records = [] 
 
         for target in targets:
             # Берём курс для этой валюты из словаря
