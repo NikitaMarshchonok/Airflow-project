@@ -6,7 +6,7 @@ import psycopg2   # подключаться к PostgreSQL из Python
 
 # Это инструменты самого Airflow
 from airflow.decorators import dag, task
-
+from airflow.models import Variable
 
 # ───────────────────────────────────────────
 # БЛОК 1: настройки по умолчанию для задач
@@ -74,8 +74,8 @@ def currency_pipeline():
     @task()
     def transform(raw_data: dict) -> list:
         # Нас интересуют только эти валюты
-        targets = ["EUR", "GBP", "JPY", "ILS", "CHF"]
-        records = []  # пустой список, будем его заполнять
+        currencies_str = Variable.get("target_currencies")
+        targets = currencies_str.split(",")
 
         for target in targets:
             # Берём курс для этой валюты из словаря

@@ -1,0 +1,14 @@
+[2026-05-09T13:08:07.325+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: currency_rates_pipeline.validate manual__2026-05-09T13:08:05.366813+00:00 [queued]>
+[2026-05-09T13:08:07.328+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: currency_rates_pipeline.validate manual__2026-05-09T13:08:05.366813+00:00 [queued]>
+[2026-05-09T13:08:07.329+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 4
+[2026-05-09T13:08:07.333+0000] {taskinstance.py:2191} INFO - Executing <Task(_PythonDecoratedOperator): validate> on 2026-05-09 13:08:05.366813+00:00
+[2026-05-09T13:08:07.335+0000] {standard_task_runner.py:60} INFO - Started process 4619 to run task
+[2026-05-09T13:08:07.337+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'currency_rates_pipeline', 'validate', 'manual__2026-05-09T13:08:05.366813+00:00', '--job-id', '79', '--raw', '--subdir', 'DAGS_FOLDER/currency_pipeline.py', '--cfg-path', '/tmp/tmp_0vbot2s']
+[2026-05-09T13:08:07.337+0000] {standard_task_runner.py:88} INFO - Job 79: Subtask validate
+[2026-05-09T13:08:07.358+0000] {task_command.py:423} INFO - Running <TaskInstance: currency_rates_pipeline.validate manual__2026-05-09T13:08:05.366813+00:00 [running]> on host e086b552c98f
+[2026-05-09T13:08:07.404+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_team' AIRFLOW_CTX_DAG_ID='currency_rates_pipeline' AIRFLOW_CTX_TASK_ID='validate' AIRFLOW_CTX_EXECUTION_DATE='2026-05-09T13:08:05.366813+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-05-09T13:08:05.366813+00:00'
+[2026-05-09T13:08:07.404+0000] {logging_mixin.py:188} INFO - Валидация пройдена, записей:5
+[2026-05-09T13:08:07.404+0000] {python.py:201} INFO - Done. Returned value was: [{'base': 'USD', 'target': 'EUR', 'rate': 0.849222, 'fetched_at': '2026-05-09T13:08:06.408642+00:00'}, {'base': 'USD', 'target': 'GBP', 'rate': 0.734306, 'fetched_at': '2026-05-09T13:08:06.408642+00:00'}, {'base': 'USD', 'target': 'JPY', 'rate': 156.662628, 'fetched_at': '2026-05-09T13:08:06.408642+00:00'}, {'base': 'USD', 'target': 'ILS', 'rate': 2.901998, 'fetched_at': '2026-05-09T13:08:06.408642+00:00'}, {'base': 'USD', 'target': 'CHF', 'rate': 0.777204, 'fetched_at': '2026-05-09T13:08:06.408642+00:00'}]
+[2026-05-09T13:08:07.413+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=currency_rates_pipeline, task_id=validate, execution_date=20260509T130805, start_date=20260509T130807, end_date=20260509T130807
+[2026-05-09T13:08:07.434+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-05-09T13:08:07.449+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

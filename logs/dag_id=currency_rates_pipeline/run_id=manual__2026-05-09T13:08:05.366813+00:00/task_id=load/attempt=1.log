@@ -1,0 +1,14 @@
+[2026-05-09T13:08:08.422+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: currency_rates_pipeline.load manual__2026-05-09T13:08:05.366813+00:00 [queued]>
+[2026-05-09T13:08:08.426+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: currency_rates_pipeline.load manual__2026-05-09T13:08:05.366813+00:00 [queued]>
+[2026-05-09T13:08:08.426+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 4
+[2026-05-09T13:08:08.431+0000] {taskinstance.py:2191} INFO - Executing <Task(_PythonDecoratedOperator): load> on 2026-05-09 13:08:05.366813+00:00
+[2026-05-09T13:08:08.433+0000] {standard_task_runner.py:60} INFO - Started process 4621 to run task
+[2026-05-09T13:08:08.434+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'currency_rates_pipeline', 'load', 'manual__2026-05-09T13:08:05.366813+00:00', '--job-id', '80', '--raw', '--subdir', 'DAGS_FOLDER/currency_pipeline.py', '--cfg-path', '/tmp/tmp1q0s59ph']
+[2026-05-09T13:08:08.435+0000] {standard_task_runner.py:88} INFO - Job 80: Subtask load
+[2026-05-09T13:08:08.456+0000] {task_command.py:423} INFO - Running <TaskInstance: currency_rates_pipeline.load manual__2026-05-09T13:08:05.366813+00:00 [running]> on host e086b552c98f
+[2026-05-09T13:08:08.497+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_team' AIRFLOW_CTX_DAG_ID='currency_rates_pipeline' AIRFLOW_CTX_TASK_ID='load' AIRFLOW_CTX_EXECUTION_DATE='2026-05-09T13:08:05.366813+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-05-09T13:08:05.366813+00:00'
+[2026-05-09T13:08:08.500+0000] {logging_mixin.py:188} INFO - Готово! Записано 5 курсов валют
+[2026-05-09T13:08:08.501+0000] {python.py:201} INFO - Done. Returned value was: 5
+[2026-05-09T13:08:08.510+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=currency_rates_pipeline, task_id=load, execution_date=20260509T130805, start_date=20260509T130808, end_date=20260509T130808
+[2026-05-09T13:08:08.532+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-05-09T13:08:08.542+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
