@@ -100,6 +100,17 @@ def currency_pipeline():
         return records  # список словарей уйдёт в задачу load
 
 
+    @task()
+    def validate(records: list) -> list:
+        if len(records) == 0:
+            raise ValueError("List empty!")
+        for record in records:
+            if record["rate"] == 0:
+                raise ValueError(f"Нулевой курс для {record['target']}!")
+        print(f"Валидация пройдена, записей:{len(records)}")
+        return records
+
+
     # ───────────────────────────────────────────
     # ЗАДАЧА 3: load — сохраняем в базу данных
     # ───────────────────────────────────────────
@@ -150,7 +161,9 @@ def currency_pipeline():
     # сначала extract, потом transform, потом load
     raw_data = extract()          # запускаем задачу 1
     clean_data = transform(raw_data)  # передаём результат в задачу 2
-    load(clean_data)              # передаём результат в задачу 3
+    validate_data = validate(clean_data)
+    load(validate_data)              # передаём результат в задачу 3
+    
 
 
 # Эта строка ОБЯЗАТЕЛЬНА — без неё Airflow не увидит DAG
